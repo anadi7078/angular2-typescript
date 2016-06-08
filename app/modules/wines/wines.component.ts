@@ -21,15 +21,15 @@ export class WinesComponent implements OnInit {
     constructor(private router: Router, private wineService: WineService) { }
 
 	ngOnInit() {
-		this.getHeroes();
+		this.getWines();
 	}
 
 	onSelect(wine: Wine) {
         this.selectedWine = wine;
     }
 
-	getHeroes() {
-		this.wineService.getWineslowly().then(wines => this.wines = wines);
+	getWines() {
+		this.wineService.getWines().then(wines => this.wines = wines);
 	}
 
 	gotoDetail() {

@@ -11,11 +11,14 @@ import { WineService } from '../shared/services/wine.service';
 })
 export class DashboardComponent implements OnInit {
 	wines: Wine[] = [];
+
 	constructor(private router: Router, private wineService: WineService) { }
+
 	ngOnInit() {
 		this.wineService.getWines()
 			.then(wines => this.wines = wines.slice(1, 5));
 	}
+
 	gotoDetail(wine: Wine) {
 		let link = ['WineDetail', { id: wine.id }];
 	  this.router.navigate(link);
